@@ -5,8 +5,17 @@
 // When Placing these before something e.g. IV, XL or CD
 // I = -1, X = -10 and C = -100
 
-// If Roman is -ve return 0
+// If Roman is -ve  return 0
 // MCMXCIV, M = 1000, CM = 900, XC = 90 and IV = 4.
+
+// if more than 9
+// then use X
+// if more than 99
+// then use C
+// if more than 999
+// then use M
+// @param roman < 3,9999
+
 
 const romanToInteger = roman => {
 
@@ -17,37 +26,39 @@ const romanToInteger = roman => {
         "L" : '50',
         "C" : '100',
         "D" : '500',
-        "D" : '1000',
-    }, returnInt = 0;
+        "M" : '1000',
+    }, returnInt = parseInt(0);
 
-    // [...roman].forEach(element => {} });
+// [...roman].forEach(element => {} });
 
-    // if more than 9
-    // then use X
-    // if more than 99
-    // then use C
-    // if more than 999
-    // then use M
+    // Adding first digit myself
+    returnInt = parseInt(romanDigits[roman[0]]);
 
+    for(let i = 1; i < roman.length; i++){
 
-    for(let i = 0; i<roman.length; i++){
+        // console.log( "I value is ", i , "roman.length", roman.length)
 
+        if( parseInt(romanDigits[roman[i]]) <= parseInt(romanDigits[roman[i-1]]) ){
+            
+            // Add if bigger than or equals to i-1
+            returnInt += parseInt(romanDigits[roman[i]])
 
-        // @param roman < 3,9999
-        switch (roman[i]) {
-            case "I":
-                if( romanDigits[i] < romanDigits[i+1] ){
-                    
+            // console.log(romanDigits[roman[i]], romanDigits[roman[i-1]])
+            
+        } else if(parseInt(romanDigits[roman[i]]) > parseInt(romanDigits[roman[i-1]])) {
 
+            // Subtract if bigger than i-1
+            subtract = romanDigits[roman[i]] - romanDigits[roman[i-1]]
+            returnInt = returnInt + subtract - romanDigits[roman[i-1]]
 
-                } else {
-
-                }
-                break
+            // console.log( parseInt(romanDigits[roman[i]]) , parseInt(romanDigits[roman[i-1]]) )
         }
     }
 
-    // return parseInt(integer)
+
+    return parseInt(returnInt)
 }
 
-romanToInteger("IIV")
+console.log(romanToInteger("MCMXCVI"))
+// 900 + 1000 + 90
+// 1910
