@@ -34,7 +34,8 @@
                 }
 
             }    
-        }   
+        }
+        
     }
 
     return (s === goal) && swapHappen ? true : false
