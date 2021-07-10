@@ -26,10 +26,6 @@
     
 };
 
-// s = "([]){"
-
-// console.log(isValidp(s))
-
 let s = []
 
 if(s.pop()) {console.log("hello")}
