@@ -1,8 +1,8 @@
 const binarySearch = (sortedArr, ele) => {
-    let low = 0, high = sortedArr.length - 1, mid = parseInt((low+high)/2), foundAt = -1
+    let low = 0, high = sortedArr.length - 1
 
     try{
-        for(i = 0; i <= sortedArr.length; i++){
+        for(i = low; i <= high; i++){
             
             // console.log(ele, mid, low, high) 
             
@@ -17,7 +17,11 @@ const binarySearch = (sortedArr, ele) => {
     
             } else if ( ele > sortedArr[mid] ){
                 low = mid + 1
-                mid = parseInt((low+high)/2)
+                mid = parseInt((low+high)/2) // this may cause the integer overflow
+                
+                // mid = parseInt(low + (high-low)/2) // Round Down Approach that eliminates integer overflow
+
+                // mid = parseInt(low + ( high - low + 1)/2) // Round Up Approach that eliminates integer overflow
     
             }
         }
@@ -25,9 +29,6 @@ const binarySearch = (sortedArr, ele) => {
         throw e
     }
 
-
-    return -1
-    
 }
 
-console.log(binarySearch([1,2, 3, 4, 5, 6, 7, 8, 9, 19], 90))
+console.log(binarySearch([1,2, 3, 4, 5, 6, 7, 8, 9, 19], 9))
