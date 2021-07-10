@@ -7,11 +7,14 @@
 
     for(i=1; i<strs.length; i++){
         
-        for(j=0; j<strs[i].length; j++){
-            console.log(longest[j], strs[j])
+        for(j=0; j<=strs[i].length; j++){
+
+            // console.log(longest, i, strs[i])
             
-            if( longest[j] !== strs[j] ){
+            if( longest[j] !== strs[i][j] ){
                 longest = longest.slice(0, j)
+
+                break
                }
         }
     }
@@ -19,7 +22,9 @@
     return longest ? longest : -1
 };
 
-strs = ["flower","flow","flight"]
+strs = ["ab","a"]
 
 console.log(longestCommonPrefix(strs))
+
+long = "hello"
 
