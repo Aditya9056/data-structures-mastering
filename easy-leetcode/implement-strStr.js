@@ -35,7 +35,7 @@
     }
     console.log(needle, haystack, index)
     
-     return needle === "" || needle === haystack ? 0 : index
+    return needle === "" || needle === haystack ? 0 : index
 };
 
 haystack = "aaaa", needle = "aaa"
