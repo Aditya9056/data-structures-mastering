@@ -41,4 +41,4 @@
 haystack = "aaaa", needle = "aaa"
 
 // console.log(strStr("abc", "c"))
-console.log(strStr(haystack, needle))
+// console.log(strStr(haystack, needle))
