@@ -6,14 +6,14 @@
     
     let start = 1, count = 0
     
-    for (i=0; i<a.length - 1; i++){
+    for (i=1; i<a.length; i++){
         
-        if( a[i] === a[i+1] ) {
+        if( a[i - 1] === a[i] ) {
             count++
         } else {
-            a[start++] = a[i]
+            a[i-count] = a[i]
         }
     }
     
-    return start
+    return a.length-count
 };
