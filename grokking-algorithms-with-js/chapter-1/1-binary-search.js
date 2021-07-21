@@ -1,5 +1,5 @@
 const binarySearch = (sortedArr, ele) => {
-    let low = 0, high = sortedArr.length - 1
+    let low = 0, high = sortedArr.length - 1, mid = parseInt((low+high)/2)
 
     try{
         for(i = low; i <= high; i++){
@@ -31,4 +31,6 @@ const binarySearch = (sortedArr, ele) => {
 
 }
 
-console.log(binarySearch([1,2, 3, 4, 5, 6, 7, 8, 9, 19], 9))
+// console.log(binarySearch([1,2, 3, 4, 5, 6, 7, 8, 9, 19], 9))
+console.log(binarySearch([1,2,3,4,5,10], 2))
+

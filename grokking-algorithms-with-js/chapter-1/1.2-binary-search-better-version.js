@@ -15,8 +15,10 @@ const binarySearch = (sortedArr, ele) => {
     } catch(e){
         throw e
     }
+    
+    console.log(low, ele)
 
     return sortedArr[low] === ele ? low : -1
 }
 
-console.log(binarySearch([1,2, 3, 4, 5, 6, 7, 8, 9, 19], 9))
+console.log(binarySearch([1,2,3,4,5,10], 2))
